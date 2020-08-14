@@ -1,4 +1,5 @@
 import 'package:meal_app/models/Ingredient-model.dart';
+import 'package:meal_app/models/day-model.dart';
 import 'package:meal_app/models/meal-model.dart';
 import 'package:meal_app/models/plan-model.dart';
 
@@ -6,12 +7,12 @@ class WeekModel {
 
   final int id;
   final String name;
-  final PlanModel plan;
+  final List<DayModel> days;
 
 WeekModel({
   this.id,
   this.name,
-  this.plan
+  this.days
 });
   
 }
@@ -50,16 +51,26 @@ List<IngredientModel>ingredientsList = [
 
 ];
 
-List<WeekModel> weeks = [
-  WeekModel(
-    id: 1,
-    name: "week 1",
-    plan: PlanModel(
+
+PlanModel monday = PlanModel(
       id: 1,
       meal: MealModel(
         id: 1,
         name: "huevos con jamon de pavo",
         ingredients: ingredientsList)
+      );
+
+
+List<WeekModel> weeks = [
+  WeekModel(
+    id: 1,
+    name: "week 1",
+    days: [
+      DayModel(
+        id: 1,
+        name: "Monday",
+        plan: monday
       )
+    ]
     )
 ];
